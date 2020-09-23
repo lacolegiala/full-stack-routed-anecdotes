@@ -134,6 +134,10 @@ const App = () => {
   const addNew = (anecdote) => {
     anecdote.id = (Math.random() * 10000).toFixed(0)
     setAnecdotes(anecdotes.concat(anecdote))
+    setNotification('A new anecdote has been created!')
+    setTimeout(() => {
+      setNotification('')
+    }, 10000)
   }
   
   const anecdoteById = (id) =>
@@ -153,6 +157,7 @@ const App = () => {
   return (
     <div> 
       <h1>Software anecdotes</h1>
+      {notification !== '' && notification}
       <Router>
         <Menu />
         <Switch>
