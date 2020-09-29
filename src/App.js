@@ -86,7 +86,13 @@ const CreateNew = (props) => {
       votes: 0
     })
     history.push('/')
+  }
 
+  const reset = (e) => {
+    e.preventDefault()
+    content.reset()
+    author.reset()
+    info.reset()
   }
   
   return (
@@ -118,6 +124,7 @@ const CreateNew = (props) => {
           />
         </div>
         <button>create</button>
+        <button onClick={event => reset(event)}>reset</button>
       </form>
     </div>
   )
