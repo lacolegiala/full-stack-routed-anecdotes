@@ -94,6 +94,10 @@ const CreateNew = (props) => {
     author.reset()
     info.reset()
   }
+
+  const { reset: resetContent, ...contentWithoutReset } = content
+  const { reset: resetAuthor, ...authorWithoutReset } = author
+  const { reset: resetInfo, ...infoWithoutReset } = info
   
   return (
     <div>
@@ -102,25 +106,19 @@ const CreateNew = (props) => {
         <div>
           content
           <input
-            type={content.type}
-            value={content.value}
-            onChange={content.onChange}
+            {...contentWithoutReset}
           />
         </div>
         <div>
           author
           <input
-            type={author.type}
-            value={author.value}
-            onChange={author.onChange}
+            {...authorWithoutReset}
           />
         </div>
         <div>
           url for more info
           <input
-            type={info.type}
-            value={info.value}
-            onChange={info.onChange}
+            {...infoWithoutReset}
           />
         </div>
         <button>create</button>
